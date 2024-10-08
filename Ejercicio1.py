@@ -13,6 +13,7 @@ class Rectangulo:
     def perimetro(self):
         return (2 * self.base) + (2 * self.altura)
 
+
 rectangulo1 = Rectangulo("s", 3)
 print(f'El area del rectangulo es: {rectangulo1.area()}')
 print(f'El perimetro del rectangulo es: {rectangulo1.perimetro()}')

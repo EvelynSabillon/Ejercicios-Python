@@ -7,7 +7,17 @@ def es_primo(n):
             return False
     return True
 
-numero = int(input(f'Introduzca un número entero: '))
+control = True
+numero = None
+
+while control:
+    try:
+        if numero is None:
+            numero = int(input(f'Introduzca un número entero: '))
+        control = False
+    except ValueError as e:
+        print('Ingrese un valor válido.')
+        print(e)
 
 if es_primo(numero):
     print(f'El número '+str(numero)+' es primo.')

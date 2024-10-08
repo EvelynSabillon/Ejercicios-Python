@@ -18,7 +18,17 @@ def fibonacci(n):
             secuencia += ', '
     print(secuencia)
 
+control = True
+numero = None
 
-numero = int(input('Ingrese el número de términos: '))
+while control:
+    try:
+        if numero is None:
+            numero = int(input('Ingrese el número de términos: '))
+        control = False
+    except ValueError as e:
+        print('Ingrese un valor válido.')
+        print(e)
+
 print('Secuencia de Fibonacci: ')
 fibonacci(numero)

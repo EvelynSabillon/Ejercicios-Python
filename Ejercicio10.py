@@ -2,9 +2,6 @@ import random
 
 
 def generar_contrasenia(longitud):
-    if longitud < 8:
-        print("La contraseña debe tener al menos 8 caracteres.")
-        return None
 
     mayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     minusculas = 'abcdefghijklmnopqrstuvwxyz'
@@ -21,7 +18,22 @@ def generar_contrasenia(longitud):
     return contrasenia
 
 
-long = int(input('Ingrese la longitud de la contraseña (minimo 8): '))
+control = True
+long = None
+
+while control:
+    try:
+        if long is None:
+            long = int(input('Ingrese la longitud de la contraseña (minimo 8): '))
+        if long < 8:
+            print('La longitud de la contraseña debe ser mayor o igual a 8.')
+            long = None
+        else:
+            control = False
+    except ValueError as e:
+        print('Ingrese un valor válido, intente de nuevo.')
+        print(e)
+        long = None
 
 contrasenia_generada = generar_contrasenia(long)
 
